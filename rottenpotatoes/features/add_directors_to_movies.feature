@@ -23,7 +23,8 @@ Background: movies in database
     Given I am on the details page for "Star Wars"
     When I follow "Find Movies With Same Director"
     Then I should be on the Similar Movies page for "Star Wars"
-    And I should not see "Blade Runner"
+    And I should see "THX-1138"
+    But I should not see "Blade Runner"
     
   Scenario: can't find similar movies if we don't know director (sad path)
     Given I am on the details page for "Alien"
