@@ -19,6 +19,13 @@ describe MoviesController do
         end
         context "When specified movie has no director" do
             it "should redirect to the movies page" do 
+                @movie_id = "1234"
+                @movie = double('fake_movie').as_null_object
+                
+                expect(Movie).to receive(:find).with(@movie_id).and_return(@movie)
+                
+                get :director, :id => @movie_id
+                expect(response).to redirect_to(movies_path)
             end
         end
     end
